@@ -1,0 +1,13 @@
+https://github.com/coreybutler/nvm-windows
+
+nvm list
+nvm install 12.16.1
+nvm use 12.16.1
+node -v
+
+
+
+git clone https://github.com/vaxidrez/react-web-api
+nvm install 14.20.0
+npm install
+npm start
