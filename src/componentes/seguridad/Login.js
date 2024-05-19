@@ -1,34 +1,7 @@
-import {Card, Grid, Container, Typography, Avatar, Icon, TextField, Button, Link, makeStyles } from '@material-ui/core';
+import {Card, Grid, Container, Typography, Avatar, Icon, TextField, Button, Link } from '@material-ui/core';
 import React from 'react';
+import useStyles from '../../theme/useStyles';
 
-const useStyles = makeStyles({
-    containermt:{
-        marginTop:30
-    },
-    card:{
-        padding:30
-    },
-    avatar:{
-        backgroundColor: '#3a0ca3',
-        width: 80,
-        height: 80,
-    },
-    icon:{
-        fontSize: 60
-    },
-    form: {
-        marginTop: 40,
-        marginBottom: 10
-    },
-    gridmb:{
-        marginBottom: 20
-    },
-    link : {
-        marginTop: 8
-    }
-
-
-})
 
 const Login = () => {
     const classes = useStyles();
