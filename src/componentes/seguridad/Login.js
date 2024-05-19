@@ -1,7 +1,7 @@
-import {Card, Grid, Container, Typography, Avatar, Icon, TextField, Button, Link } from '@material-ui/core';
+import {Card, Grid, Container, Typography, Avatar, Icon, TextField, Button } from '@material-ui/core';
 import React from 'react';
 import useStyles from '../../theme/useStyles';
-
+import {Link} from 'react-router-dom';
 
 const Login = () => {
     const classes = useStyles();
@@ -43,7 +43,7 @@ const Login = () => {
                                 </Grid>
                             </Grid>
                             <Link
-                            href="/"
+                            to="/registrar"
                             variant="body1"
                             className={classes.link}
                             >¿No tienes cuenta?, Regístrate</Link>

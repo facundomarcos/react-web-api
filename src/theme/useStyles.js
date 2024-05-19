@@ -24,7 +24,12 @@ const useStyles = makeStyles({
         marginBottom: 20
     },
     link : {
-        marginTop: 8
+        marginTop: 8,
+        fontSize:"1.1rem",
+        fontFamily:"Roboto",
+        lineHeight: 1.5,
+        color: theme.palette.primary.main,
+        textDecoration:"none"
     },
     appBar :{
         paddingTop:8,
@@ -38,7 +43,9 @@ const useStyles = makeStyles({
     },
     linkAppBarLogo:{
         display:"inline-flex",
-        alignItems:"center"
+        alignItems:"center",
+        color:"inherit",
+        textDecoration:"none"
     },
     mr:{
         marginRight:3
@@ -50,7 +57,9 @@ const useStyles = makeStyles({
     linkAppBarDesktop:{
         display: "inline-flex",
         alignItems: "center",
-        padding:"6px 16px"
+        padding:"6px 16px",
+        color:"inherit",
+        textDecoration:"none"
     },
     list:{
         width:250
@@ -63,7 +72,9 @@ const useStyles = makeStyles({
         display:"inline-flex",
         alignItems:"center",
         width:"100%",
-        padding:"8px 16px"
+        padding:"8px 16px",
+        color:"inherit",
+        textDecoration:"none"
     },
     listItemIcon:{
         minWidth:35
