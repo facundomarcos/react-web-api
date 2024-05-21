@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
 import {Table, Button, CardMedia, Container, Divider, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Step, StepLabel, Stepper, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, Paper } from '@material-ui/core';
 
-const ProcesoCompra = () => {
+const ProcesoCompra = (props) => {
     const [activeStep, setActiveStep] = useState(1);
     const continuarProceso = () =>{
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
     const retrocederProceso = ()=>{
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    }
+
+    const realizarPedido=() => {
+        const idCompra = "f8032d32-2233-4b8e-84ee-5fcfa925c8e5";
+        props.history.push("/ordenCompra/"+ idCompra);
+
     }
     const classes = useStyles();
 
@@ -219,6 +225,7 @@ const ProcesoCompra = () => {
                                                 <Button variant='contained'
                                                 color='primary'
                                                 size='large'
+                                                onClick={realizarPedido}
                                                 >REALIZAR PEDIDO</Button>
                                             </TableCell>
                                         </TableRow>
