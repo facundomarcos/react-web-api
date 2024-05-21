@@ -7,6 +7,7 @@ import MenuAppBar from './componentes/navegacion/MenuAppBar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Productos from './componentes/pantallas/Productos';
 import DetalleProducto from './componentes/pantallas/DetalleProducto';
+import CarritoCompras from './componentes/pantallas/CarritoCompras';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route exact path="/registrar" component={RegistrarUsuario}/>
       <Route exact path="/" component={Productos}/>
       <Route exact path="/detalleProducto/:id" component={DetalleProducto}/>
+      <Route exact path="/carrito" component={CarritoCompras}/>
     </Switch>
   </Router>
 
