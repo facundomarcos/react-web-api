@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
-import { Button, Container, Grid, Step, StepLabel, Stepper, TextField, Typography } from '@material-ui/core';
+import {Table, Button, CardMedia, Container, Divider, FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, Step, StepLabel, Stepper, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, Paper } from '@material-ui/core';
 
 const ProcesoCompra = () => {
     const [activeStep, setActiveStep] = useState(1);
@@ -78,9 +78,156 @@ const ProcesoCompra = () => {
                         <Typography variant='h6' className={classes.text_title}>
                             METODO DE PAGO
                         </Typography>
+                        <Grid container spacing={2}>
+                            <Grid item xs={12}>
+                                <FormControl className={classes.formControl}>
+                                    <FormLabel>
+                                        Seleccione metodo
+                                    </FormLabel>
+                                    <RadioGroup>
+                                        <FormControlLabel value="Paypal"
+                                        control={<Radio color='primary'/>}
+                                        label="Paypal o Tarjeta"/>
+
+                                    </RadioGroup>
+
+                                </FormControl>
+
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button variant='contained'
+                                color='primary'
+                                className={classes.buttonAnterior}
+                                onClick={retrocederProceso}>ANTERIOR</Button>
+                                <Button variant='contained'
+                                color='primary'
+
+                                onClick={continuarProceso}>CONTINUAR</Button>
+
+                            </Grid>
+
+                        </Grid>
                     </Grid>
                 )  : activeStep === 3 ? (
-                    <Grid>
+                    <Grid container className={classes.gridPC}>
+                        <Grid item md={8} xs={12} className={classes.gridLR}>
+                            <Typography variant='h6' className={classes.text_title}>
+                                ENVIO
+                            </Typography>
+                            <Typography >
+                                Direccion: Calle 55, La Plata, Argentina
+                            </Typography>
+                            <Divider className={classes.divider}/>
+                            <Typography variant='h6' className={classes.text_title}>
+                                METODO DE PAGO
+                            </Typography>
+                            <Typography >
+                               Metodo: Paypal
+                            </Typography>
+                            <Typography variant='h6' className={classes.text_title}>
+                                PRODUCTOS
+                            </Typography>
+                            <TableContainer className={classes.gridmb}>
+                                <Table>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell>
+                                                <CardMedia className={classes.imgProductoPC}
+                                                image='https://tottope.vteximg.com.br/arquivos/ids/167188-1000-1000/PILIGRAM-H-1810-V07_A.png?v=636723781789170000'
+                                                title='imagen en proceso compra'
+                                                />
+
+                                            </TableCell>
+                                            <TableCell>
+                                                <Typography className={classes.text_detalle}>Abrigo Vaxi moda 2024</Typography>
+                                            </TableCell>
+                                            <TableCell>
+                                                <Typography className={classes.text_detalle}>2 x $25.00 = $50.00</Typography>
+                                            </TableCell>
+                                        </TableRow>
+
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                            <Button variant='contained'
+                            color='primary'
+                            onClick={retrocederProceso}>
+                                ANTERIOR
+                            </Button>
+
+                        </Grid>
+                        <Grid item md={4} xs={12}>
+                            <TableContainer component={Paper} square>
+                                <Table>
+                                    <TableBody>
+                                        <TableRow>
+                                            <TableCell colSpan={2}>
+                                                <Typography variant='h6' className={classes.text_title}>RESUMEN DEL PEDIDO</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>Productos</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>$50.00</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>Envio</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>$2.00</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>Impuesto</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>$8.00</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>Total</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Typography className={classes.text_title}>$60.00</Typography>
+
+                                            </TableCell>
+                                        </TableRow>
+                                        <TableRow>
+                                            <TableCell>
+                                                <Button variant='contained'
+                                                color='primary'
+                                                size='large'
+                                                >REALIZAR PEDIDO</Button>
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableBody>
+                                </Table>
+                                
+                            </TableContainer>
+
+                        </Grid>
                         
                     </Grid>
                 ): null
