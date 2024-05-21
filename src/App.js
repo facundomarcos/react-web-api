@@ -6,6 +6,7 @@ import RegistrarUsuario from './componentes/seguridad/RegistrarUsuario';
 import MenuAppBar from './componentes/navegacion/MenuAppBar';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Productos from './componentes/pantallas/Productos';
+import DetalleProducto from './componentes/pantallas/DetalleProducto';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/login" component={Login}/>
       <Route exact path="/registrar" component={RegistrarUsuario}/>
       <Route exact path="/" component={Productos}/>
+      <Route exact path="/detalleProducto/:id" component={DetalleProducto}/>
     </Switch>
   </Router>
 
