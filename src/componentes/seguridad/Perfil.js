@@ -1,10 +1,15 @@
 import React from 'react';
 import useStyles from '../../theme/useStyles';
-import { Grid, Container, Typography, Icon, Avatar, TextField, Divider, Button } from '@material-ui/core';
+import { Table, Grid, Container, Typography, Icon, Avatar, TextField, Divider, Button, TableContainer, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ImageUploader from 'react-images-upload';
 
-const Perfil = () => {
+const Perfil = (props) => {
     const classes = useStyles();
+    const verDetalles = () => {
+        const id = '78968193-7b01-4078-b806-d8f65da3fdb1';
+        props.history.push('/ordenCompra/' + id);
+
+    }
     return (
         <Container className={classes.containermt}>
             <Grid container spacing={2}>
@@ -69,6 +74,44 @@ const Perfil = () => {
 
                 </Grid>
                 <Grid item md={9} xs={12}>
+                    <Typography
+                    variant='h5'
+                    className={classes.text_title}
+                    >MIS PEDIDOS</Typography>
+                    <TableContainer className={classes.form}>
+                        <Table className={classes.table}>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Id</TableCell>
+                                    <TableCell>FECHA</TableCell>
+                                    <TableCell>TOTAL</TableCell>
+                                    <TableCell>PAGADO</TableCell>
+                                    <TableCell>ENTREGADO</TableCell>
+                                    <TableCell></TableCell>
+
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                            <TableRow>
+                                    <TableCell>78968193-7b01-4078-b806-d8f65da3fdb1</TableCell>
+                                    <TableCell>2024-12-15</TableCell>
+                                    <TableCell>60.00</TableCell>
+                                    <TableCell>2024-12-15</TableCell>
+                                    <TableCell>
+                                        {/* <Icon className={classes.iconNotDelivered}>clear</Icon> */}
+                                        <Icon className={classes.iconDelivered}>check</Icon>
+                                    </TableCell>
+                                    <TableCell>
+                                        <Button variant='contained' onClick={verDetalles}>
+                                            DETALLES
+                                        </Button>
+                                    </TableCell>
+
+                                </TableRow>
+                            </TableBody>
+                        </Table>
+
+                    </TableContainer>
 
                 </Grid>
 
