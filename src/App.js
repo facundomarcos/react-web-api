@@ -10,6 +10,7 @@ import DetalleProducto from './componentes/pantallas/DetalleProducto';
 import CarritoCompras from './componentes/pantallas/CarritoCompras';
 import ProcesoCompra from './componentes/pantallas/ProcesoCompra';
 import OrdenCompra from './componentes/pantallas/OrdenCompra';
+import Perfil from './componentes/seguridad/Perfil';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
       <Route exact path="/carrito" component={CarritoCompras}/>
       <Route exact path="/procesoCompra" component={ProcesoCompra}/>
       <Route exact path="/ordenCompra/:id" component={OrdenCompra}/>
+      <Route exact path="/perfil" component={Perfil}/>
+   
+   
     </Switch>
   </Router>
 
