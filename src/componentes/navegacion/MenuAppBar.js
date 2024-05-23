@@ -4,6 +4,9 @@ import useStyles from '../../theme/useStyles';
 import {Link} from 'react-router-dom';
 import MenuCliente from './desktop/MenuCliente';
 import MenuAdmin from './desktop/MenuAdmin';
+import MenuMovil from './movil/MenuMovil';
+
+
 const MenuAppBar = () => {
     const [open, setOpen]= useState(false);
 
@@ -35,7 +38,7 @@ const MenuAppBar = () => {
                         >
                             <div className={classes.list}>
                                 <List>
-                                    <ListItem button onClick={closeTogle} className={classes.listItem}>
+                                    {/* <ListItem button onClick={closeTogle} className={classes.listItem}>
                                         <Link to="/login" color='inherit' className={classes.linkAppBarMobile} underline='none'>
                                             <ListItemIcon className={classes.listItemIcon}>
                                                 <Icon>person</Icon>
@@ -45,7 +48,8 @@ const MenuAppBar = () => {
                                             </ListItemText>
                                         </Link>
 
-                                    </ListItem>
+                                    </ListItem> */}
+                                    <MenuMovil clickHandler={closeTogle}/>
                                 </List>
                             </div>
 
