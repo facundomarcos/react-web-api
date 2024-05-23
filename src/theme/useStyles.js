@@ -192,6 +192,10 @@ const useStyles = makeStyles({
     iconNotDelivered : {
         color: "red",
         fontWeight: 900
+    },
+    avatarPerfilAppBar : {
+        marginRight : 8,
+        backgroundColor : "#F2F2F2"
     }
 })
 

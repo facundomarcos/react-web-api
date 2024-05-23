@@ -2,6 +2,8 @@ import { AppBar, Button, Container, Drawer, Icon, IconButton, List, ListItem, Li
 import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
 import {Link} from 'react-router-dom';
+import MenuCliente from './desktop/MenuCliente';
+import MenuAdmin from './desktop/MenuAdmin';
 const MenuAppBar = () => {
     const [open, setOpen]= useState(false);
 
@@ -59,12 +61,14 @@ const MenuAppBar = () => {
                             </Link>
                         </div>
                         <div className={classes.sectionDesktop}>
-                            <Button color='inherit' className={classes.buttonIcon}>
+                            {/* <Button color='inherit' className={classes.buttonIcon}>
                                 <Link to="/login" color='inherit' underline='none' className={classes.linkAppBarDesktop}>
                                     <Icon className={classes.mr}>person</Icon>
                                     LOGIN
                                 </Link>
-                            </Button>
+                            </Button> */}
+                            <MenuCliente/>
+                            <MenuAdmin/>
                         </div>
                     </Toolbar>
                 </Container>
