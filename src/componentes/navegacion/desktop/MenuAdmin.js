@@ -45,7 +45,7 @@ const MenuAdmin = () => {
                 onClose={handleClose}
                 >
                     <MenuItem className={classes.listItem} onClick={handleClose}>
-                        <Link className={classes.linkAppBarMobile} to='//'>
+                        <Link className={classes.linkAppBarMobile} to='/admin/usuarios'>
                             <ListItemIcon className={classes.listItemIcon}>
                                 <Icon>group</Icon>
                                 <ListItemText>Usuarios</ListItemText>

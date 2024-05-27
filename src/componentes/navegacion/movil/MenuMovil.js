@@ -21,16 +21,16 @@ const MenuMovil = (props) => {
     return (
         <>
             <ListItem button onClick={handleClickCliente} className={classes.ListItem}>
-                <div className={classes.ListItem}>
+                <div className={classes.linkAppBarMobile}>
                     <Avatar
                     alt='mi imagen'
                     className={classes.avatarPerfilAppBar}
                     src=''
                     />
-                    <ListItemText>Jhon Peralta
+                    <ListItemText>Jhon Peralta          </ListItemText>
                     <Icon>keyboard_arrow_down</Icon>
 
-                    </ListItemText>
+          
             
 
                 </div>
@@ -70,9 +70,10 @@ const MenuMovil = (props) => {
                 <Icon>
                     admin_panel_settings
                 </Icon>
-             </ListItemIcon>
-             <ListItemText>Admin</ListItemText>
+                <ListItemText>Admin</ListItemText>
              <Icon>keyboard_arrow_down</Icon>
+             </ListItemIcon>
+          
             
 
                 </div>
@@ -81,7 +82,7 @@ const MenuMovil = (props) => {
                 <List disablePadding>
                     <ListItem button className={classes.listSubItem}
                     onClick={props.clickHandler}>
-                        <Link className={classes.linkAppBarMovile} to='/perfil'>
+                        <Link className={classes.linkAppBarMovile} to='/admin/usuarios'>
                             <ListItemIcon className={classes.ListItemIcon}>
                                 <Icon>group</Icon>
                                 <ListItemText>
