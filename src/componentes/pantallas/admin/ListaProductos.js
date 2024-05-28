@@ -1,11 +1,15 @@
 import React from 'react';
 import useStyles from '../../../theme/useStyles';
-import { Button, Container, Grid, Icon, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
+import { Avatar, Button, Container, Grid, Icon, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@material-ui/core';
 import { productoArray } from '../../data/dataPrueba';
 
-const ListaProductos = () => {
+
+const ListaProductos = (props) => {
     const classes = useStyles();
     const productos = productoArray;
+    const agregarProducto = () => {
+        props.history.push("/admin/agregarProducto");
+    }
 
     return (
 <Container className={classes.containermt}>
@@ -19,10 +23,12 @@ const ListaProductos = () => {
             <Button
             variant='contained' color='inherit'
             className={classes.buttonAgregar}
+            onClick={agregarProducto}
             >
                 <Icon>add
                     </Icon>
                     AGREGAR PRODUCTO</Button>
+
 
         </Grid>
 
