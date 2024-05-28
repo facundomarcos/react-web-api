@@ -15,6 +15,7 @@ import Usuarios from './componentes/pantallas/admin/Usuarios';
 import EditarUsuario from './componentes/pantallas/admin/EditarUsuario';
 import ListaProductos from './componentes/pantallas/admin/ListaProductos';
 import AgregarProducto from './componentes/pantallas/admin/AgregarProducto';
+import EditarProducto from './componentes/pantallas/admin/EditarProducto';
 
 function App() {
   return (
@@ -33,7 +34,9 @@ function App() {
       <Route exact path="/admin/usuario/:id" component={EditarUsuario}/>
       <Route exact path="/admin/listaProductos" component={ListaProductos}/>
       <Route exact path="/admin/agregarProducto" component={AgregarProducto}/>
+      <Route exact path="/admin/editarProducto/:id" component={EditarProducto}/>
       
+
 
    
 

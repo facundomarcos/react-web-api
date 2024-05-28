@@ -10,6 +10,9 @@ const ListaProductos = (props) => {
     const agregarProducto = () => {
         props.history.push("/admin/agregarProducto");
     }
+    const editarProducto = (id) => {
+        props.history.push("/admin/editarProducto/" + id);
+    }
 
     return (
 <Container className={classes.containermt}>
@@ -54,7 +57,8 @@ const ListaProductos = (props) => {
                                     <TableCell>
                                         <Button
                                         variant='contained'
-                                        color='primary'>
+                                        color='primary'
+                                        onClick={() => editarProducto(producto.key)}>
                                             <Icon>edit
                                             </Icon>
                                         </Button>
