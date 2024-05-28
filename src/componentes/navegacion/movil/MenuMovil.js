@@ -93,7 +93,7 @@ const MenuMovil = (props) => {
                         </Link>
                     </ListItem>
                     <ListItem onClick={props.clickHandler} button className={classes.listSubItem}>
-                        <Link className={classes.linkAppBarMovile} to='/'>
+                        <Link className={classes.linkAppBarMovile} to='/admin/listaProductos'>
                             <ListItemIcon className={classes.ListItemIcon}>
                                 <Icon>storefront</Icon>
                                 <ListItemText>
