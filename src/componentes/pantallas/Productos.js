@@ -6,6 +6,8 @@ import { productoArray } from '../data/dataPrueba';
 
 const Productos = (props) => {
 
+    console.log('REACT_APP_URL_BASE', process.env.REACT_APP_URL_BASE);
+
     const miArray = productoArray; 
     const verProducto = (id) => {
         props.history.push("/detalleProducto/" + id);
