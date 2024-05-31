@@ -5,7 +5,7 @@ import useStyles from '../../theme/useStyles';
 
 const OrdenCompra = (props) => {
     const {id} = props.match.params;
-    const mensajeEnvio = "Entregado";
+    const mensajeEnvio = "No Entregado";
     const mensajePago = "Pagado";
     const classes = useStyles();
     return (
@@ -27,7 +27,7 @@ const OrdenCompra = (props) => {
                     <Typography variant="body2" className={classes.text_envio}>
                         Direccion: Calle 2, Cali, Colombia
                     </Typography>
-                    <div className={classes.alertDelivered}>
+                    <div className={classes.alertNotDelivered}>
                         <Typography variant="body2" className={classes.text_title}>
                             {mensajeEnvio}
                         </Typography>
@@ -135,8 +135,9 @@ const OrdenCompra = (props) => {
                                     </TableCell>
                                 </TableRow>
                                 <TableRow>
-                                    <TableCell colSpan={2}>
-                                        <Button
+                                    {/* boton para el usuario */}
+                                 <TableCell colSpan={2}>
+                                         {/*   <Button
                                         variant="contained"
                                         color="primary"
                                         size="large"
@@ -151,8 +152,16 @@ const OrdenCompra = (props) => {
                                         fullWidth
                                         >
                                             Tarjeta de Credito o Debito
-                                        </Button>
-                                    </TableCell>
+                                        </Button>*/}
+                                                {/* boton para el admin */}
+                                    <Button
+                                    variant='contained'
+                                    color='primary'
+                                    size='large'
+                                    fullWidth
+                                    >MARCAR COMO ENTREGADO</Button>
+                                    </TableCell> 
+                            
                                 </TableRow>
                             </TableBody>
                         </Table>

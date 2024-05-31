@@ -2,8 +2,13 @@ import React from 'react';
 import useStyles from '../../../theme/useStyles';
 import { Button, Container, Icon, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@material-ui/core';
 
-const ListaPedidos = () => {
+const ListaPedidos = (props) => {
     const classes = useStyles();
+    const verDetalle = () => {
+        const id = "67f46a84-1711-4b54-9b07-8c07db40cdc6";
+        props.history.push("/ordenCompra/" + id);
+
+    }
     return (
 <Container className={classes.containermt}>
     <Typography
@@ -33,6 +38,7 @@ const ListaPedidos = () => {
                     <TableCell><Button
                     variant='contained'
                     color='inherit'
+                    onClick={verDetalle}
 
                     >DETALLES</Button></TableCell>
 
@@ -47,7 +53,7 @@ const ListaPedidos = () => {
                     <TableCell><Button
                     variant='contained'
                     color='inherit'
-                    
+                    onClick={verDetalle}
                     >DETALLES</Button></TableCell>
 
                 </TableRow>
