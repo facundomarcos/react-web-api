@@ -1,10 +1,12 @@
-import { AppBar, Button, Container, Drawer, Icon, IconButton, List, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Container, Drawer, Icon, IconButton, List, Toolbar, Typography } from '@material-ui/core';
 import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
 import {Link} from 'react-router-dom';
 import MenuCliente from './desktop/MenuCliente';
 import MenuAdmin from './desktop/MenuAdmin';
 import MenuMovil from './movil/MenuMovil';
+import MenuMovilPublico from './movil/MenuMovilPublico';
+import MenuPublico from './desktop/MenuPublico';
 
 
 const MenuAppBar = () => {
@@ -38,18 +40,8 @@ const MenuAppBar = () => {
                         >
                             <div className={classes.list}>
                                 <List>
-                                    {/* <ListItem button onClick={closeTogle} className={classes.listItem}>
-                                        <Link to="/login" color='inherit' className={classes.linkAppBarMobile} underline='none'>
-                                            <ListItemIcon className={classes.listItemIcon}>
-                                                <Icon>person</Icon>
-                                            </ListItemIcon>
-                                            <ListItemText>
-                                                Login
-                                            </ListItemText>
-                                        </Link>
-
-                                    </ListItem> */}
-                                    <MenuMovil clickHandler={closeTogle}/>
+{/* <MenuMovilPublico clickHandler={closeTogle}/> */}
+                                     <MenuMovil clickHandler={closeTogle}/> 
                                 </List>
                             </div>
 
@@ -65,14 +57,9 @@ const MenuAppBar = () => {
                             </Link>
                         </div>
                         <div className={classes.sectionDesktop}>
-                            {/* <Button color='inherit' className={classes.buttonIcon}>
-                                <Link to="/login" color='inherit' underline='none' className={classes.linkAppBarDesktop}>
-                                    <Icon className={classes.mr}>person</Icon>
-                                    LOGIN
-                                </Link>
-                            </Button> */}
-                            <MenuCliente/>
-                            <MenuAdmin/>
+        {/* <MenuPublico/>  */}
+                             <MenuCliente/>
+                            <MenuAdmin/>  
                         </div>
                     </Toolbar>
                 </Container>
