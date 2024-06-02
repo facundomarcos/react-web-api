@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { Avatar,Button,Card,Container,Grid,Icon, TextField, Typography} from '@material-ui/core';
 import useStyles from '../../theme/useStyles';
 import {Link} from 'react-router-dom';
+import { registrarUsuario } from '../../actions/UsuarioAction';
 
 const clearUsuario = {
     nombre: '',
-    apellidos: '',
+    apellido: '',
     email:'',
-    password:''
+    password:'',
+    username:''
 }
 
 const RegistrarUsuario = () => {
     const [usuario, setUsuario] = useState({
         nombre: '',
-        apellidos: '',
+        apellido: '',
         email:'',
-        password:''
+        password:'',
+        username:''
     })
 
 const handleChange = (e) => {
@@ -27,8 +30,11 @@ const handleChange = (e) => {
 }
 
 const guardarUsuario = () => {
-    console.log("usuario es", usuario);
-    setUsuario(clearUsuario);
+    // console.log("usuario es", usuario);
+    // setUsuario(clearUsuario);
+    registrarUsuario(usuario).then(response =>{
+        console.log("este es el response qeu envia el servidor",response);
+    });
 }
 
     const classes = useStyles();
@@ -59,8 +65,18 @@ const guardarUsuario = () => {
                             label="Apellidos"
                             variant="outlined"
                             fullWidth
-                            name='apellidos'
-                            value={usuario.apellidos}
+                            name='apellido'
+                            value={usuario.apellido}
+                            onChange={handleChange}
+                        />
+                    </Grid>
+                    <Grid item md={12} xs={12} className={classes.gridmb}>
+                        <TextField
+                            label="Username"
+                            variant="outlined"
+                            fullWidth
+                            name='username'
+                            value={usuario.username}
                             onChange={handleChange}
                         />
                     </Grid>
