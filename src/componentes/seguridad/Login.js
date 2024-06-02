@@ -1,13 +1,54 @@
 import {Card, Grid, Container, Typography, Avatar, Icon, TextField, Button } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import useStyles from '../../theme/useStyles';
 import {Link} from 'react-router-dom';
+import { loginUsuario } from '../../actions/UsuarioAction';
 
-const Login = () => {
+
+const clearUsuario = {
+    email:'',
+    password:''
+}
+
+const Login = () =>{
+    const[usuario, setUsuario] = useState({
+        email:'',
+        password:''
+    });
+
+
+const handleChange = (e) =>{
+    const {name,value} = e.target;
+    setUsuario(prev => ({
+        ...prev,
+        [name]:value
+    }))
+}
+
+const loginEventoUsuario = () =>{
+    loginUsuario(usuario).then(response=>{
+        if(response.status === 200){
+            window.localStorage.setItem('token',response.data.token);
+            console.log('login exitoso', response.data);
+
+        }else{
+            console.log('credenciales erroneas', response.data);
+        }
+    })
+    // const respuesta = accesoUsuario(usuario);
+    // if(!respuesta.status){
+    //     console.log("Email y Password incorrectos");
+    //     return;
+    // }
+    // setUsuario(clearUsuario);
+    // console.log("Bienvenido", respuesta.miUsuario.nombre);
+}
+
+//const Login = () => {
     const classes = useStyles();
     return (
        <Container className={classes.containermt}>
-            <Grid container justify="center">
+            <Grid container justifyContent="center">
                 <Grid item lg={5} md={6}>
                     <Card className={classes.card} align="center">
                         <Avatar className={classes.avatar}>
@@ -16,13 +57,17 @@ const Login = () => {
                         <Typography variant="h5" color="primary">
                             Ingrese su Usuario
                         </Typography>
-                        <form className={classes.form}>
+                        <form className={classes.form} onSubmit={(e) => e.preventDefault()}>
                             <Grid container spacing={2}>
                                 <Grid item xs={12} className={classes.gridmb}>
-                                    <TextField label="Email"
+                                    <TextField 
+                                    label="Email"
                                     variant="outlined"
                                     fullWidth
                                     type="email"
+                                    name='email'
+                                    value={usuario.email}
+                                    onChange={handleChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.gridmb}>
@@ -30,23 +75,29 @@ const Login = () => {
                                     variant="outlined"
                                     fullWidth
                                     type="password"
+                                    name='password'
+                                    value={usuario.password}
+                                    onChange={handleChange}
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.gridmb}>
                                    <Button
                                    variant='contained'
                                    fullWidth
-                                   color='primary'>
+                                   color='primary'
+                                   type='submit'
+                                   onClick={loginEventoUsuario}
+                                   >
                                     Ingresar
 
                                    </Button>
                                 </Grid>
                             </Grid>
-                            <Link
+                            {/* <Link
                             to="/registrar"
                             variant="body1"
                             className={classes.link}
-                            >¿No tienes cuenta?, Regístrate</Link>
+                            >¿No tienes cuenta?, Regístrate</Link> */}
                         </form>
                     </Card>
                 </Grid>
