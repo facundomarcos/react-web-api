@@ -10,7 +10,7 @@ const clearUsuario = {
     password:''
 }
 
-const Login = () =>{
+const Login = (props) =>{
     const[usuario, setUsuario] = useState({
         email:'',
         password:''
@@ -30,6 +30,7 @@ const loginEventoUsuario = () =>{
         if(response.status === 200){
             window.localStorage.setItem('token',response.data.token);
             console.log('login exitoso', response.data);
+            props.history.push('/');
 
         }else{
             console.log('credenciales erroneas', response.data);

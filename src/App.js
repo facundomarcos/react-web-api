@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Login from './componentes/seguridad/Login';
 import { ThemeProvider } from '@material-ui/core';
 import theme from './theme/theme';
@@ -17,8 +17,27 @@ import ListaProductos from './componentes/pantallas/admin/ListaProductos';
 import AgregarProducto from './componentes/pantallas/admin/AgregarProducto';
 import EditarProducto from './componentes/pantallas/admin/EditarProducto';
 import ListaPedidos from './componentes/pantallas/admin/ListaPedidos';
+import { getUsuario } from './actions/UsuarioAction';
 
 function App() {
+
+  const [servidorRespuesta,setServidorRespuesta] = useState(false);
+
+
+  useEffect(()=>{
+    if(!servidorRespuesta){
+      getUsuario().then(response => {
+        setServidorRespuesta(true);
+        console.log("estado de sesion",response);
+      })
+  
+    }
+
+  },[servidorRespuesta]);
+
+
+
+
   return (
 <ThemeProvider theme={theme}>
   <Router>
