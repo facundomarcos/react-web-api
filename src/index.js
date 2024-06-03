@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { StateProvider } from './contexto/store';
-import { initialState } from './contexto/InitialState';
+
 import {mainReducer} from './contexto/reducers';
+import { initialState } from './contexto/InitialState';
 
 ReactDOM.render(
   <React.StrictMode>

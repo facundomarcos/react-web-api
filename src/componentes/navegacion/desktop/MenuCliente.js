@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 import useStyles from '../../../theme/useStyles';
 import { Avatar, Button, Icon, ListItemIcon, ListItemText, Menu, MenuItem } from '@material-ui/core';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import { useStateValue } from '../../../contexto/store';
 
 const MenuCliente = () => {
+
+    const [{sesionUsuario}, dispatch ] = useStateValue();
+
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (e) => {
@@ -34,7 +38,10 @@ const MenuCliente = () => {
                         className={classes.avatarPerfilAppBar}
                         src='https://tottope.vteximg.com.br/arquivos/ids/167188-1000-1000/PILIGRAM-H-1810-V07_A.png?v=636723781789170000'
                         />
-                        John peralta
+                        {sesionUsuario
+                         ? (sesionUsuario.autenticado ? sesionUsuario.usuario.nombre + ' ' + sesionUsuario.usuario.apellido: 'No sesion')
+                        : 'No sesion'
+                        }
                         <Icon>
                             keyboard_arrow_down
                         </Icon>
