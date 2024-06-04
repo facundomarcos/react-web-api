@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from '../../theme/useStyles';
-import {Icon, Grid, Table, CardMedia, Container, IconButton, MenuItem, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, Paper, Divider, Button } from '@material-ui/core';
+import {Icon, Grid, Table, CardMedia, Container, IconButton, MenuItem, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, Paper, Divider, Button, Select } from '@material-ui/core';
 import { productoArray } from '../data/dataPrueba';
 import { useStateValue } from '../../contexto/store';
 
@@ -45,8 +45,8 @@ const CarritoCompras = (props) => {
                                             </Typography>
                                         </TableCell>
                                         <TableCell>
-                                            <TextField
-                                            select
+                                            <Select
+                                            defaultValue={1}
                                             variant='outlined'
                                             size='small'>
                                                <MenuItem value={1}>1</MenuItem>
@@ -55,7 +55,7 @@ const CarritoCompras = (props) => {
                                                <MenuItem value={4}>4</MenuItem>
                                                <MenuItem value={5}>5</MenuItem>
 
-                                            </TextField>
+                                            </Select>
                                         </TableCell>
                                         <TableCell>
                                             <IconButton>
