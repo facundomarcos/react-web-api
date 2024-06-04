@@ -19,6 +19,8 @@ import EditarProducto from './componentes/pantallas/admin/EditarProducto';
 import ListaPedidos from './componentes/pantallas/admin/ListaPedidos';
 import { getUsuario } from './actions/UsuarioAction';
 import { useStateValue } from './contexto/store';
+import { getCarritoCompra } from './actions/CarritoCompraAction';
+import {v4 as uuidv4} from 'uuid';
 
 function App() {
   const [{sesionUsuario}, dispatch] = useStateValue();
@@ -26,19 +28,20 @@ function App() {
   const [servidorRespuesta,setServidorRespuesta] = useState(false);
 
 
-  useEffect(()=>{
-    if(!servidorRespuesta){
-      getUsuario(dispatch).then(response => {
-        setServidorRespuesta(true);
-        console.log("estado de sesion",response);
-      })
-  
+  useEffect(async () => {
+
+    let carritoCompraId = window.localStorage.getItem('carrito');
+    if(!carritoCompraId){
+      carritoCompraId = uuidv4();
+      window.localStorage.setItem('carrito', carritoCompraId);
     }
 
+    if(!servidorRespuesta){
+      await getUsuario(dispatch);
+      await getCarritoCompra(dispatch,carritoCompraId);
+      setServidorRespuesta(true);
+    }
   },[servidorRespuesta]);
-
-
-
 
   return (
 <ThemeProvider theme={theme}>

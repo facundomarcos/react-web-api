@@ -2,8 +2,13 @@ import React from 'react';
 import useStyles from '../../theme/useStyles';
 import {Icon, Grid, Table, CardMedia, Container, IconButton, MenuItem, TableBody, TableCell, TableContainer, TableRow, TextField, Typography, Paper, Divider, Button } from '@material-ui/core';
 import { productoArray } from '../data/dataPrueba';
+import { useStateValue } from '../../contexto/store';
 
 const CarritoCompras = (props) => {
+
+    const [{sesionCarritoCompra},dispatch] = useStateValue();
+    console.log('sesionCarritoCompra', sesionCarritoCompra);
+    
     const realizarCompra = () => {
         props.history.push("/procesoCompra");
     }
